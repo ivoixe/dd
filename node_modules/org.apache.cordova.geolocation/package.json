@@ -1,0 +1,42 @@
+{
+  "name": "org.apache.cordova.geolocation",
+  "version": "0.3.6",
+  "description": "cordova-plugin-geolocation@0.3.6",
+  "main": "./www/geolocation.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "gitHead": "496e858cbe3d7df72e2c4a51c03b9b7934b5138b",
+  "_id": "org.apache.cordova.geolocation@0.3.6",
+  "_shasum": "ee389be4cf9d6f3b8ce50017b5af7ea89faad68d",
+  "_from": "org.apache.cordova.geolocation@latest",
+  "_npmVersion": "3.10.10",
+  "_nodeVersion": "6.11.5",
+  "_npmUser": {
+    "name": "ylzc",
+    "email": "631300329@qq.com"
+  },
+  "dist": {
+    "shasum": "ee389be4cf9d6f3b8ce50017b5af7ea89faad68d",
+    "tarball": "https://registry.npmjs.org/org.apache.cordova.geolocation/-/org.apache.cordova.geolocation-0.3.6.tgz",
+    "fileCount": 22,
+    "unpackedSize": 71076,
+    "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa6u/7CRA9TVsSAnZWagAAVkcP/At1rW2F7lFkpzsCWBqf\nxmkca4MdJAQYAORpXv9ht82MDLSxBs2+d+FLKmOqYHHmgjimBtv9hcsy23mC\nQwFAbHFr558qGGQ8aF7qv15iGXXOMsxfzL7JMfzi4iEtFNep80EGVhF3YEEs\n0r7kO+JDtKbRZQ4O2hAS/lhTl9J0RLBMOpUeMIo2ATZRwJkm9rIXJ7HiHpzG\nlIRcoq++rbwYnubifkqtb5+y+VdPJSe0WoC/mfE+ofV85fkoumrmJpSrkmiP\nO8kybu+ZKHTHJhOBbHecTzG/he8/AQgUWA67Kiy8YA+ER6hvixxV5xJixAQC\nrN0m3eWIiRdrX1ZvCDpoF9HSbVTu2nV8T5QpwjXz1jqYeNqRCXOj2v+zqbS0\nqhqBFCax/sWrCEKMoi7G13z4OPh9OhjneTTJoiloxE4Q8eErJmLf1JfYRo/6\nw4Go4MKOu8Kl2C9Ps4cmHKBGLkT9J6B9LlK5mHtjslMiNTjk4tqjJUMJcmaW\nPw3+BFFfHy3+t2kc5jn4skNjoWus2Um0YFcd7d2N5VwP6VQpEEMul0n5xGWW\nDtXwGHt/vvZcQvyk0hJEBMArdhRMchVh8hzYGwxgEjd6TuAPGgOF9SeYwtom\nvf4chEMU69aIIUS/F8lYfLVHZPSxIsH9NplMCU4ZcvpHcx7WNtURlzKvKKRu\njI+Y\r\n=K4xn\r\n-----END PGP SIGNATURE-----\r\n"
+  },
+  "maintainers": [
+    {
+      "name": "ylzc",
+      "email": "631300329@qq.com"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/org.apache.cordova.geolocation_0.3.6_1525346298522_0.9330942219751477"
+  },
+  "_resolved": "https://registry.npmjs.org/org.apache.cordova.geolocation/-/org.apache.cordova.geolocation-0.3.6.tgz"
+}

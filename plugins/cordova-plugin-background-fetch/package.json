@@ -1,0 +1,73 @@
+{
+  "name": "cordova-plugin-background-fetch",
+  "version": "5.4.1",
+  "description": "A plugin to periodically awaken your app in the background every 15 minutes to perform some work.",
+  "cordova": {
+    "id": "cordova-plugin-background-fetch",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/transistorsoft/cordova-plugin-background-fetch.git"
+  },
+  "keywords": [
+    "cordova",
+    "background",
+    "fetch"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/transistorsoft/react-native-background-fetch/issues"
+  },
+  "homepage": "https://github.com/transistorsoft/react-native-background-fetch",
+  "engines": {
+    "cordovaDependencies": {
+      "<5.4.0": {
+        "cordova": ">=6.4.0",
+        "cordova-android": ">=6.0.0",
+        "cordova-ios": ">=4.3.0"
+      },
+      "5.4.0": {
+        "cordova": ">=7.1.0",
+        "cordova-android": ">=7.0.0",
+        "cordova-ios": ">=4.4.0"
+      }
+    }
+  },
+  "author": {
+    "name": "Chris Scott, Transistor Software",
+    "email": "chris@transistorsoft.com"
+  },
+  "gitHead": "59588db57f2dda56ee5abcd5d2a6d74760c916d2",
+  "_id": "cordova-plugin-background-fetch@5.4.1",
+  "_npmVersion": "6.0.1",
+  "_nodeVersion": "8.10.0",
+  "_npmUser": {
+    "name": "christocracy",
+    "email": "chris@transistorsoft.com"
+  },
+  "dist": {
+    "integrity": "sha512-kI5JqRoVh7F4RVslGnTWuJ3OVx66xgGFqiQAeUnWS4L6ipJKghSxaCJAufMLbZDxfUDEArCFKp2+RbB0/Ntecg==",
+    "shasum": "4b576826b84b9259d1c4c9a2616e7ff6b164f86d",
+    "tarball": "https://registry.npmjs.org/cordova-plugin-background-fetch/-/cordova-plugin-background-fetch-5.4.1.tgz",
+    "fileCount": 31,
+    "unpackedSize": 319044,
+    "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbCDjSCRA9TVsSAnZWagAAB34QAIbwDh4/5EBJZaFS7c6a\nV60/Tl3yTZ1NrEXuitDhYeacd1qpqoe+PdIPweu5OI906VLYsIVHNISNIqDP\n2zONaGDlwFUQK5697VY9bNVQsUrHZFN1/WcZiAHgnch53/tXKXAIBBEvZJMA\n1GTEUOVVE9ugKiaabQ4RvuAaVc/0JG+Y7aWO/KkMIpwKJRbd75f2iLBpGgwG\nSIMOEJiuBTE9yB6ULK8Ld80pNKlyWB3MUzC39x8TLJnS1PSjAgCL6Dd8XQim\nn6/+im40Gdr/WqnHkRrVoh9SkPAdWXBWQB4UmnXQt0MWXMQPWN3M8RtoJ6G5\nUXLlHzeumJ5IOc4JTo6qSQnA896L8GNKzWztZIbcCQsw+RUL6569Rs5WHCvs\n4T2H3/Vud8rVwSiQr7Y1ou6oWDN4OKbbzHF98+D8ezr4JPir6jMMKbLuskwO\nTlP+NunRTMfW74F45v74g5Yr9bVEBSH9WZ2XPQ5FwcJ+mJKG4+giltLoh6SK\n63rW0iQ9qPw1BfDDHjR9F6IsECxivIa7yqHpAQ/PEQUkmCQFAKlYAT4uOfeX\nFIQW55DHp2VHYWHv5FHZoEatwCQuc4h2uJw2VtMwPSq1ZuAh35mSs7kc/Pnb\nGLcLjBevodFfeJDEnx1OSy3DN4cxOGldJjTgVk3Mwjf8cd644wazcFXeG5O/\ncAup\r\n=AiyU\r\n-----END PGP SIGNATURE-----\r\n"
+  },
+  "maintainers": [
+    {
+      "name": "christocracy",
+      "email": "chris@transistorsoft.com"
+    }
+  ],
+  "directories": {},
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/cordova-plugin-background-fetch_5.4.1_1527265489609_0.6931102769859603"
+  },
+  "_shasum": "4b576826b84b9259d1c4c9a2616e7ff6b164f86d",
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-background-fetch/-/cordova-plugin-background-fetch-5.4.1.tgz",
+  "_from": "cordova-plugin-background-fetch@>=5.4.1 <5.5.0"
+}

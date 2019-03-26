@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) ivonne . All rights reserved.
+
+-->
+<html>
+  <head>
+    <title>Geolocalización </title>
+
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/jquery.mobile-1.4.5.min.js"></script>
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD6cz9NsGdNE_K-eXAsZedHCNEaZRku63s"></script>
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6cz9NsGdNE_K-eXAsZedHCNEaZRku63s"
+  type="text/javascript"></script>-->
+    <link  href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css"></link>
+	<link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css" />
+	
+	<script type="text/javascript" charset="utf-8" src="js/funciones.js"></script>   
+   <script type="text/javascript" charset="utf-8">
+	
+	
+
+	$(document).ready(function() {
+			
+		$("#ruta").click(function() {
+			var destino =  $('#sitio').val();
+			var mode =  $('#mode').val();
+		
+			calculateAndDisplayRoute(directionsService, directionsDisplay,destino,mode);	
+			
+		});
+		
+		
+		//cuando selecciona el medio de transporte
+			$( "#mode" ).on('change', function() {
+			var destino =  $('#sitio').val();
+			var mode =  $('#mode').val();
+			calculateAndDisplayRoute(directionsService, directionsDisplay,destino,mode);	
+		});
+	    //Cuando selecciona una distancia diferente
+		$( "#distancia" ).on('change', function() {
+			cargar_mas_cercanos($(this).val());	
+			$('#sitios_cercanos').removeClass('hidden');
+			$('#route').removeClass('hidden');
+			if($(this).val() == "sel"){
+				$('#sitios_cercanos').addClass('hidden');
+				$('#route').addClass('hidden');
+			}
+		});
+		$('#reset').click( function(){
+			$('#distancia').val('sel');
+			
+			initialize(lat_actual,log_actual);	
+			guardarPosicion(lat_actual,log_actual); 
+			
+		});
+		$('#iniciar').click( function(e){
+			//e.preventDefault();
+			opciones = {
+			  enableHighAccuracy: false,
+			  timeout: 10000,
+			  maximumAge: Infinity
+			};
+			 
+						
+			var watchID_P = navigator.geolocation.watchPosition(onSuccessProgress, onError, opciones);
+
+			
+		});
+		$('#pararProgress').click( function(e){
+			//e.preventDefault();
+				navigator.geolocation.clearWatch(watchID_P); 
+			
+		});
+		
+		
+		
+		// Options: throw an error if no update is received every 30 seconds.
+		//var watchID = navigator.geolocation.watchPosition(onSuccess, onError, {maximumAge: 60000, timeout: 5000, enableHighAccuracy: true }); // esta me mira cada momento
+		//var watchID = navigator.geolocation.watchPosition(onSuccess, onError, 500000);
+		/*Con esta variable mirará la posicion cuando se lo indique*/
+		/*ESTO ES LO QUE SE CARGA AL PRINCIPIO (mapa y localizacion actual)*/
+		
+		var watchID = navigator.geolocation.getCurrentPosition(onSuccess, onError, {maximumAge: Infinity, timeout: 10000, enableHighAccuracy: true }); // esta me mira una vez
+		var ahora = new Date(); 
+   		 var datetime = ahora.getDate() + "/"
+                + (ahora.getMonth()+1)  + "/" 
+                + ahora.getFullYear() + "  "  
+                + ahora.getHours() + ":"  
+                + ahora.getMinutes() + ":" 
+                + ahora.getSeconds();
+        /*************limpia *************/
+        navigator.geolocation.clearWatch(watchID);
+
+		if(ahora.getHours() == 11 && ahora.getMinutes == 30){
+				 navigator.geolocation.clearWatch(watchID_P);
+		}
+			document.addEventListener("deviceready", onDeviceReady, false);
+		
+	});
+
+
+		function onDeviceReady() {
+			
+		  window.plugins.sim.getSimInfo(successCallback, errorCallback);
+		}
+		 function successCallback(result) {
+               document.getElementById("simInfo").innerHTML=JSON.stringify(result);
+            // document.getElementById("phone").innerHTML=JSON.stringify(result.phoneNumber);
+
+                $('#phone').text(result.phoneNumber);
+              
+                document.getElementById("carrierName").innerHTML=JSON.stringify(result.carrierName);
+         }
+            function errorCallback(error) {
+                document.getElementById("simInfo").innerHTML=JSON.stringify(error);
+            } 
+
+    </script>
+	<style>
+	 #map-canvas{
+	   height:500px;
+	 }
+	 .hidden{
+		display:none; 
+     }
+	.datos-telefono{
+		float: left;
+		width: 100%;
+		overflow: scroll;
+	}
+	</style>
+  </head>
+  <body>
+	<div data-role="page" class="ui-corner-all">
+		<div data-role="content">
+		 <button type="submit" value="" id="iniciar" >Iniciar recursivo hasta hora indicada</button>
+		  <button type="submit" value="" id="pararProgress" >Para iniciar recursivo</button>
+		  <fieldset>
+		  	<input type="text" name="username" id="username"/>
+		  	<input type="text" name="password" id="password"/>
+					<button id="save">Save</button>
+					<button id="load">Load</button>
+					<button id="clear">Clear</button>
+					 
+					<script type="text/javascript">
+					$(function() {
+					   // Save input value to localStorage
+					   $('#save').on('click', function() {
+					      var username = $('#username').val();
+					      var pass = $('#password').val();
+					      localStorage.setItem("username", username);
+					      localStorage.setItem("password", pass);
+					   });
+					   // Load input value from localStorage
+					   $('#load').on('click', function() {
+					      var username = localStorage.getItem('username') || '<empty>';
+					      var password = localStorage.getItem('password') || '<empty>';
+					      $('#username').val(username);
+					      $('#password').val(password);
+					   });
+					   // Clear localStorage
+					   $('#clear').on('click', function() {
+					      localStorage.clear();
+					   });
+					});
+					</script>
+
+		  </fieldset>
+
+		     <fieldset data-role="controlgroup" data-type="horizontal">
+			   	<p id="resultado">resultado c</p>
+				
+				<p id="simInfo">donde iria el telefono</p>
+				<p id="phone">donde iria el telefono</p>
+				<p id="carrierName">donde iria el telefono</p>
+				</div>
+			 </fieldset>
+             <fieldset data-role="controlgroup" data-type="horizontal">
+					 <button type="submit" value="" id="reset" >Volver a ubicar</button>
+					<label for="distancia">Selecciona la distancia que mejor te convenga</label>	
+					<select id="distancia">
+					  <option value="sel">-selecciona-</option>
+					  <option value="1">a 1 km</option>
+					  <option value="2">a 2 km</option>
+					  <option value="3">a 3 km</option>
+					  <option value="4">a 4 km</option>
+					</select>
+			 </fieldset>
+					<p id="resultado_coordenadas"></p>
+	
+			<div id="sitios_cercanos" class="hidden">
+				<label for="sitio">Selecciona el sitio al que te quieres dirigir</label>	
+				<select id="sitio" class=""></select>
+			</div>
+			<div id="route" class="hidden">
+				<label for="mode">Selecciona modo de transporte</label>	
+				<select id="mode">
+				<option value="DRIVING">Coche</option>
+				<option value="WALKING">Andando</option>
+				<option value="BICYCLING">Bicicleta</option>
+				<option value="TRANSIT">Transporte público</option>
+				</select>
+
+
+				<button type="submit" value="" id="ruta" >Ruta</button>
+			</div>
+		
+				 <p id="directions-panel"></p>
+			
+				<div role="main" class="ui-content" id="map-canvas">
+				<!-- map loads here... -->
+				</div>
+			
+	
+			</div>
+			   <div data-role="footer">
+			
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#" data-icon="grid">Summary</a></li>
+                <li><a href="#" data-icon="star" class="ui-btn-active">Favs</a></li>
+                <li><a href="#" data-icon="gear">Setup</a></li>
+            </ul>
+        </div><!-- /navbar -->
+</div><!-- /footer -->
+		</div>
+	</body>
+</html>
+
+
+

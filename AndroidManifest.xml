@@ -1,0 +1,28 @@
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+<Uses-permission android:name = "android.permission.ACCESS_NETWORK_STATE" />
+<Uses-permission android:name = "android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+<Uses-permission android:name = "android.permission.WAKE_LOCK" />
+<Uses-permission android:name = "android.hardware.location" />
+<service android:name="com.bnt.etailers.fcm.MyFireBaseInstanceIDService"
+android:exported="false">
+<intent-filter>
+    <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+</intent-filter>
+</service>
+<service
+android:name=".FirebaseMessaging">
+<intent-filter>
+    <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+</intent-filter>
+</service>
+
+<service
+android:name="com.bnt.etailers.fcm.GCMNotificationIntentService"
+android:exported="false">
+<intent-filter>
+    <action android:name="com.google.firebase.MESSAGING_EVENT" />
+</intent-filter>
+</service>

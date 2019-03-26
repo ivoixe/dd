@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) ivonne . All rights reserved.
+
+-->
+<html>
+  <head>
+    <title>Geolocalización </title>
+
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD6cz9NsGdNE_K-eXAsZedHCNEaZRku63s"></script>
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6cz9NsGdNE_K-eXAsZedHCNEaZRku63s"
+  type="text/javascript"></script>-->
+    <link  href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css"></link>
+	<link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css" />
+	
+    <script type="text/javascript" charset="utf-8" src="js/jquery.mobile-1.4.5.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/funciones.js"></script>   
+   <script type="text/javascript" charset="utf-8">
+		document.addEventListener('deviceready', function () {
+		    // Android customization
+		     onDeviceReady();
+ 			 var watchID_P = navigator.geolocation.watchPosition(onSuccessProgress, onError, opciones);
+		    cordova.plugins.backgroundMode.setDefaults({ text:'Doing heavy tasks.'});
+		    // Enable background mode
+		    cordova.plugins.backgroundMode.enable();
+
+		    // Called when background mode has been activated
+		    cordova.plugins.backgroundMode.onactivate = function () {
+
+		   
+		       setTimeout(function () {
+		       		initialize(lat_actual,log_actual);	
+		       		  alert(lat_actual);
+		      		 alert(log_actual);
+
+		            // Modify the currently displayed notification
+		            cordova.plugins.backgroundMode.configure({
+		                text:'Running in background for more than 5s now.'
+		            });
+		        }, 5000);
+		    }
+		}, false);
+
+	$(document).ready(function() {
+			    onDeviceReady();
+		$("#ruta").click(function() {
+			var destino =  $('#sitio').val();
+			var mode =  $('#mode').val();
+		
+			calculateAndDisplayRoute(directionsService, directionsDisplay,destino,mode);	
+			
+		});
+		
+		
+		//cuando selecciona el medio de transporte
+			$( "#mode" ).on('change', function() {
+			var destino =  $('#sitio').val();
+			var mode =  $('#mode').val();
+			calculateAndDisplayRoute(directionsService, directionsDisplay,destino,mode);	
+		});
+	    //Cuando selecciona una distancia diferente
+		$( "#distancia" ).on('change', function() {
+			cargar_mas_cercanos($(this).val());	
+			$('#sitios_cercanos').removeClass('hidden');
+			$('#route').removeClass('hidden');
+			if($(this).val() == "sel"){
+				$('#sitios_cercanos').addClass('hidden');
+				$('#route').addClass('hidden');
+			}
+		});
+		$('#reset').click( function(){
+			$('#distancia').val('sel');
+			
+			initialize(lat_actual,log_actual);	
+			guardarPosicion(lat_actual,log_actual); 
+			
+		});
+		$('#iniciar').click( function(e){
+			//e.preventDefault();
+			opciones = {
+			  enableHighAccuracy: false,
+			  timeout: 10000,
+			  maximumAge: Infinity
+			};
+			 
+						
+			
+
+			
+		});
+		$('#pararProgress').click( function(e){
+			//e.preventDefault();
+				navigator.geolocation.clearWatch(watchID_P); 
+			
+		});
+		
+		
+		
+		// Options: throw an error if no update is received every 30 seconds.
+		//var watchID = navigator.geolocation.watchPosition(onSuccess, onError, {maximumAge: 60000, timeout: 5000, enableHighAccuracy: true }); // esta me mira cada momento
+		//var watchID = navigator.geolocation.watchPosition(onSuccess, onError, 500000);
+		/*Con esta variable mirará la posicion cuando se lo indique*/
+		/*ESTO ES LO QUE SE CARGA AL PRINCIPIO (mapa y localizacion actual)*/
+		
+		var watchID = navigator.geolocation.getCurrentPosition(onSuccess, onError, {maximumAge: Infinity, timeout: 10000, enableHighAccuracy: true }); // esta me mira una vez
+		var ahora = new Date(); 
+   		 var datetime = ahora.getDate() + "/"
+                + (ahora.getMonth()+1)  + "/" 
+                + ahora.getFullYear() + "  "  
+                + ahora.getHours() + ":"  
+                + ahora.getMinutes() + ":" 
+                + ahora.getSeconds();
+     
+
+	
+			
+		
+	});
+ 
+
+		function onDeviceReady() {
+			
+		 // window.plugins.sim.getSimInfo(successCallback, errorCallback);
+		   // Get a reference to the plugin.
+			    var bgGeo = window.BackgroundGeolocation;
+			 alert(bgGeo);
+			    //This callback will be executed every time a geolocation is recorded in the background.
+			    var callbackFn = function(location) {
+			        var coords = location.coords;
+			        var lat    = coords.latitude;
+			        var lng    = coords.longitude;
+			        alert('- Location: ', JSON.stringify(location));        
+			    };
+
+			    // This callback will be executed if a location-error occurs.  Eg: this will be called if user disables location-services.
+			    var failureFn = function(errorCode) {
+			        console.warn('- BackgroundGeoLocation error: ', errorCode);
+			    }
+
+			    // Listen to location events & errors.
+			    bgGeo.on('location', callbackFn, failureFn);
+			    // Fired whenever state changes from moving->stationary or vice-versa.
+			    bgGeo.on('motionchange', function(isMoving) {
+			      console.log('- onMotionChange: ', isMoving);
+			    });
+			    // Fired whenever a geofence transition occurs.
+			    bgGeo.on('geofence', function(geofence) {
+			      console.log('- onGeofence: ', geofence.identifier, geofence.location);
+			    });
+			    // Fired whenever an HTTP response is received from your server.
+			    bgGeo.on('http', function(response) {
+			      console.log('http success: ', response.responseText);
+			    }, function(response) {
+			      console.log('http failure: ', response.status);
+			    });
+
+			    // BackgroundGeoLocation is highly configurable.
+			    bgGeo.ready({
+			        // Geolocation config
+			        desiredAccuracy: 0,
+			        distanceFilter: 10,
+			        stationaryRadius: 25,
+			        // Activity Recognition config
+			        activityRecognitionInterval: 10000,
+			        stopTimeout: 5,
+			        // Application config
+			        debug: true,  // <-- Debug sounds & notifications.
+			        stopOnTerminate: false,
+			        startOnBoot: true,
+			        // HTTP / SQLite config
+			        url: "http://your.server.com/locations",
+			        method: "POST",
+			        autoSync: true,
+			        maxDaysToPersist: 3,
+			        headers: {  // <-- Optional HTTP headers
+			            "X-FOO": "bar"
+			        },
+			        params: {   // <-- Optional HTTP params
+			            "auth_token": "maybe_your_server_authenticates_via_token_YES?"
+			        }
+			    }, function(state) {
+			        // This callback is executed when the plugin is ready to use.
+			        console.log("BackgroundGeolocation ready: ", state);
+			        if (!state.enabled) {
+			            bgGeo.start();
+			        }
+			    });
+
+			    // The plugin is typically toggled with some button on your UI.
+			    function onToggleEnabled(value) {
+			        if (value) {
+			            bgGeo.start();
+			        } else {
+			            bgGeo.stop();
+			        }
+			    }
+		}
+		 function successCallback(result) {
+               document.getElementById("simInfo").innerHTML=JSON.stringify(result);
+            // document.getElementById("phone").innerHTML=JSON.stringify(result.phoneNumber);
+
+                $('#phone').text(result.phoneNumber);
+              
+                document.getElementById("carrierName").innerHTML=JSON.stringify(result.carrierName);
+         }
+            function errorCallback(error) {
+                document.getElementById("simInfo").innerHTML=JSON.stringify(error);
+            } 
+
+  
+    </script>
+	<style>
+	 #map-canvas{
+	   height:500px;
+	 }
+	 .hidden{
+		display:none; 
+     }
+	.datos-telefono{
+		float: left;
+		width: 100%;
+		overflow: scroll;
+	}
+
+
+	</style>
+  </head>
+  <body>
+		<div id="page-main" data-role="page" class="ui-corner-all">
+			<div data-role="content">
+			    <fieldset data-role="controlgroup" data-type="horizontal">
+					 <button type="submit" value="" id="reset" >Fichar</button>
+				</fieldset>
+				<div role="main" class="ui-content" id="map-canvas">
+				<!-- map loads here... -->
+				</div>
+		
+			</div>
+
+			 <div data-role="footer">
+					
+		        <div data-role="navbar">
+		            <ul>
+		                
+		                <li><a href="#page-main" data-icon="grid">Fichar</a></li>
+		             
+		                <li><a href="#page-config" data-icon="gear">Configuración</a></li>
+		            
+		            </ul>
+		        </div><!-- /navbar -->
+			</div><!-- /footer -->
+
+		</div>
+		<div id="page-config"data-role="page" class="ui-corner-all">
+			<div data-role="content">
+			 
+				<label for="username">Usuario:</label><input type="text" name="username" id="username" placeholder="Escribe tu usuario" />
+	  			<label for="password">Contraseña:</label><input type="password" name="password" id="password"/>
+				<button id="save">Guardar datos</button>
+				<button id="load">Ver datos</button>
+				<button id="clear">Borrar usuario y contraseña</button>
+			</div>
+
+			 <div data-role="footer">
+					
+		        <div data-role="navbar">
+		            <ul>
+		                <li><a href="#page-main" data-icon="grid">Fichar</a></li>
+		             
+		                <li><a href="#page-config" data-icon="gear">Configuración</a></li>
+		            </ul>
+		        </div><!-- /navbar -->
+			</div><!-- /footer -->
+
+		</div>
+		<div class="mensaje" style="display:none">
+		</div>
+	</body>
+</html>
+
+
+<script type="text/javascript">
+$(function() {
+   // Save input value to localStorage
+   $('#save').on('click', function() {
+      var username = $('#username').val();
+      var pass = $('#password').val();
+      localStorage.setItem("username", username);
+      localStorage.setItem("password", pass);
+       $('#username').val('');
+       $('#password').val('');
+      alert('los datos han sido guardados');
+   });
+   // Load input value from localStorage
+   $('#load').on('click', function() {
+      var username = localStorage.getItem('username') || '<empty>';
+      var password = localStorage.getItem('password') || '<empty>';
+      $('#username').val(username);
+      $('#password').val(password);
+   });
+   // Clear localStorage
+   $('#clear').on('click', function() {
+      localStorage.clear();
+   });
+});
+</script>

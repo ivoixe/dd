@@ -1,0 +1,66 @@
+{
+  "name": "cordova-support-google-services",
+  "version": "1.2.1",
+  "description": "Cordova plugin to add google service support",
+  "scripts": {
+    "version": "replace -s 'version=\"(.+)(?=\">)' 'version=\"'$npm_package_version plugin.xml && git add plugin.xml",
+    "postversion": "git push && git push --tags"
+  },
+  "cordova": {
+    "id": "cordova-support-google-services",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chemerisuk/cordova-support-google-services.git"
+  },
+  "author": {
+    "name": "Maksim Chemerisuk",
+    "email": "chemerisuk@gmail.com",
+    "url": "https://github.com/chemerisuk"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chemerisuk/cordova-support-google-services/issues"
+  },
+  "homepage": "https://github.com/chemerisuk/cordova-support-google-services#readme",
+  "keywords": [
+    "cordova",
+    "google services",
+    "firebase",
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "gitHead": "83949a7afe06c5537c801fa16a1af936e2a06ddb",
+  "_id": "cordova-support-google-services@1.2.1",
+  "_npmVersion": "5.6.0",
+  "_nodeVersion": "8.11.2",
+  "_npmUser": {
+    "name": "chemerisuk",
+    "email": "chemerisuk@gmail.com"
+  },
+  "maintainers": [
+    {
+      "name": "chemerisuk",
+      "email": "chemerisuk@gmail.com"
+    }
+  ],
+  "dist": {
+    "integrity": "sha512-EnFjKAE9oI2uzyUvEfWpLgTM200nuJVvShaA4yyz9wMKBUN+H/BRG1byd1ibZz3sSihNKi3FxjQPxmmEn6/IfA==",
+    "shasum": "49e8a14833c59eab0171b34cd70873397af8797b",
+    "tarball": "https://registry.npmjs.org/cordova-support-google-services/-/cordova-support-google-services-1.2.1.tgz",
+    "fileCount": 5,
+    "unpackedSize": 5698,
+    "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbaC+QCRA9TVsSAnZWagAAnbUP/iSfTBPms78ZPl2II7r1\na/BJlJs22ljNXbwBTrF5WiRsbGGpxV2/XNPVPWkX7YFDmd+xON2+qxIKWqrV\nQjPnI1zmXcNHyl/Bfz9eaTqTOvt4/N02IGA0XVnD5obPMXvtC8XGYLZMy46G\nfQIakMFvDIWQro8kZ4VedyVw8vJmmkfzR7uI11eKW9Vz49kVjWTXyk2ZsUdn\n2rPZMb04sj0/MfiU/9Yiqt7yf36+mHp/sbuX7NW3DUJJn9RiFYFoIu6BOob1\nlgW9gadb0KISzt9o81UiKBe9G6mBAFWFYTBOUFMxj/OGSPe0U2zy8ByPPJUX\nvawhPhGyiAvDuewzL5rXSM2DgVvca6SF/F7GIMcrMxDQpDh1DT0kJnvEqwOd\nSXiBZxBxv0GxMD4GwnmQe54bRvQzUNvroW8js+rPgTJCtXCURkikH0lG2n/R\nj0bOOwf8Aw1ExAewOyaWxZCwsRHE/YhBy/AMm8CQqEYRKrCe9pzvBf3wW2ep\n4GiWkdum24j0NtoU4Lg9a8TDlCAku+DE+x2yfmVy/f/9lCqZXUFBEmFGrgl6\nkO7njXVm1ntyb9gncZYgGpiK8L/Nd8d0aa+qUnlyLalFdAJJYXkZJKJ/5cPk\nrb5aUyMyfUqWmR/AjOu6XmamTx6AYg7NR1eSsy6cgGoT0CHf9EtA/ZAKei1D\nSwQz\r\n=30N/\r\n-----END PGP SIGNATURE-----\r\n"
+  },
+  "directories": {},
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/cordova-support-google-services_1.2.1_1533554575784_0.5541465103103154"
+  },
+  "_shasum": "49e8a14833c59eab0171b34cd70873397af8797b",
+  "_resolved": "https://registry.npmjs.org/cordova-support-google-services/-/cordova-support-google-services-1.2.1.tgz",
+  "_from": "cordova-support-google-services@>=1.2.0 <1.3.0"
+}

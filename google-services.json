@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "953842536904",
+    "firebase_url": "https://connecting-e5377.firebaseio.com",
+    "project_id": "connecting-e5377",
+    "storage_bucket": "connecting-e5377.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:953842536904:android:580b212343ff03e9",
+        "android_client_info": {
+          "package_name": "com.prismacm.connecting"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "953842536904-0sfik5prp7qre07etu7fq5c8e194i1m4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3dsrnLzWdCjle29-iFqDXFmnuGC9OB30"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

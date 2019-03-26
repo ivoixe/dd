@@ -1,0 +1,87 @@
+{
+  "name": "cordova-background-geolocation-lt",
+  "version": "2.13.1",
+  "description": "Cordova Background Geolocation.  The most sophisticated, cross-platform location-tracking and geofencing plugin with battery-conscious motion-detection intelligence.",
+  "cordova": {
+    "id": "cordova-background-geolocation-lt",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/transistorsoft/cordova-background-geolocation-lt.git"
+  },
+  "keywords": [
+    "gps",
+    "location",
+    "tracking",
+    "geolocation",
+    "geofencing",
+    "background",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "cordova",
+    "phonegap"
+  ],
+  "engines": {
+    "cordovaDependencies": {
+      "<2.9.0": {
+        "cordova": ">=6.4.0",
+        "cordova-android": ">=6.0.0",
+        "cordova-ios": ">=4.3.0"
+      },
+      "2.9.0": {
+        "cordova": ">=7.1.0",
+        "cordova-android": ">=6.3.0",
+        "cordova-ios": ">=4.4.0"
+      },
+      "2.12.0": {
+        "cordova": ">=7.1.0",
+        "cordova-android": ">=7.0.0",
+        "cordova-ios": ">=4.4.0"
+      }
+    }
+  },
+  "author": {
+    "name": "Chris Scott, Transistor Software"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/transistorsoft/cordova-background-geolocation-lt/issues"
+  },
+  "homepage": "https://github.com/transistorsoft/cordova-background-geolocation-lt#README",
+  "gitHead": "e656141bb78237352c15011095f24405cfe3c423",
+  "_id": "cordova-background-geolocation-lt@2.13.1",
+  "_npmVersion": "6.0.1",
+  "_nodeVersion": "8.10.0",
+  "_npmUser": {
+    "name": "christocracy",
+    "email": "chris@transistorsoft.com"
+  },
+  "dist": {
+    "integrity": "sha512-MH86wXcQvEwTje3BulYoAZhZHkb8FqFx2iJkx0pDnD32eHS3cJi3xTuEXwm6BHdplLAEfV2Xa2H6wMWWT/LgVg==",
+    "shasum": "b458822d4bfbbe417066b224ffab949d9c79023f",
+    "tarball": "https://registry.npmjs.org/cordova-background-geolocation-lt/-/cordova-background-geolocation-lt-2.13.1.tgz",
+    "fileCount": 58,
+    "unpackedSize": 32774090,
+    "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbhqkoCRA9TVsSAnZWagAA+oMP/3AG/1cOyVqlpMj6+luv\nHUqz+t+RNnazFfklZ8UUPXijXp9w4pFMqZMAaIEelxeQ110M5Xrl8IZcAfbe\nA3RNX6VtzEKeqKZEU47W+l/GemdyjpZX0Yxpe8N249MQ9+9RghJ6DNC7kYOs\nPTnv7gtjysA/Po+IuI7PoOm0brx8qIWpXk7eRK/gTj/dfpPkOsK4ohPafy4Z\nXYDVIB7jso2Jd2xkmSq1FnoBAvJMIBz1qTb1DOWfRlt8mkTHOUt7kxlvXezE\nvdJX2FA5tfjnilXQfTxUM+O8HTTui+VjmqPrJw88CU5N8pUjl/tXyJyDQQQE\ndSsHkrNICONFmSxTlpdTgukw6WlOQHZSkDhZhIkbaVs73eNq0AioO0tQOdfu\nn/zRkQE0Td0CxtW221m4FxCrK/M8MI/m7+rDy8IOvkhDXFx0OSks1c8fxjCM\n2CC0P5FvP6QtnMjCp48M/yBoud8HdC0+IsIgXYXUqMXX+Ml5gMgzC4nEWYn4\n+N/bsTJEMiHOa0VgJgppa9qzzJ42h54M4ktwkQTc39OggOF5ArduPs5+jOIw\nVaiKN0R+NrhM4eIE+kNkTHRtfsAE5c69Cq3w86cDZsd7aOdjlhM3GM8cX7dt\ndJBNHQ/AK8ozp/Ot8LjeYuofg60F9ISDKidwt09SCy2f8TZ7k4KSp/+6tBkE\nEXIV\r\n=Zy87\r\n-----END PGP SIGNATURE-----\r\n"
+  },
+  "maintainers": [
+    {
+      "name": "christocracy",
+      "email": "chris@transistorsoft.com"
+    }
+  ],
+  "directories": {},
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/cordova-background-geolocation-lt_2.13.1_1535551782520_0.7503189154288934"
+  },
+  "_hasShrinkwrap": false,
+  "_shasum": "b458822d4bfbbe417066b224ffab949d9c79023f",
+  "_resolved": "https://registry.npmjs.org/cordova-background-geolocation-lt/-/cordova-background-geolocation-lt-2.13.1.tgz",
+  "_from": "cordova-background-geolocation-lt@latest"
+}

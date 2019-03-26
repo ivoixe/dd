@@ -1,0 +1,158 @@
+{
+  "cordova-plugin-whitelist": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-whitelist@1"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-device": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-device"
+    },
+    "is_top_level": false,
+    "variables": {}
+  },
+  "cordova-plugin-globalization": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-globalization"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-geolocation": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-geolocation"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "org.apache.cordova.geolocation": {
+    "source": {
+      "type": "registry",
+      "id": "org.apache.cordova.geolocation"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "com.pbakondy.sim2": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-sim2"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-sim": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-sim"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-background-mode": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-background-mode"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-background-geolocation-lt": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-background-geolocation-lt"
+    },
+    "is_top_level": true,
+    "variables": {
+      "LICENSE": "YOUR_LICENSE_KEY",
+      "GOOGLE_API_VERSION": "15.0.1",
+      "APPCOMPAT_VERSION": "27.1.1"
+    }
+  },
+  "cordova-plugin-background-fetch": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-background-fetch@~5.4.1"
+    },
+    "is_top_level": false,
+    "variables": {}
+  },
+  "de.appplant.cordova.plugin.local-notification": {
+    "source": {
+      "type": "registry",
+      "id": "de.appplant.cordova.plugin.local-notification"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-dialogs": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-dialogs"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "phonegap-plugin-local-notification": {
+    "source": {
+      "type": "registry",
+      "id": "phonegap-plugin-local-notification"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "phonegap-plugin-push": {
+    "source": {
+      "type": "registry",
+      "id": "https://github.com/phonegap/phonegap-plugin-push"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-support-android-plugin": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-support-android-plugin@~1.0.0"
+    },
+    "is_top_level": false,
+    "variables": {}
+  },
+  "cordova-support-google-services": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-support-google-services@~1.2.0"
+    },
+    "is_top_level": false,
+    "variables": {}
+  },
+  "cordova-plugin-fcm": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-fcm@~2.1.2"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-splashscreen": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-splashscreen@5.0.2"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-local-notification": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-local-notification"
+    },
+    "is_top_level": true,
+    "variables": {}
+  }
+}

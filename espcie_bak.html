@@ -1,0 +1,138 @@
+  cordova.plugins.notification.local.registerPermission( function(granted){
+
+  });
+document.addEventListener('deviceready', function () {
+	var date = new Date();
+	cordova.plugins.notification.local.schedule({
+
+		id:1,
+		title:"jdjdj",
+		at:date,
+		firstAt:date,
+		every:25,
+		icon:'https://www.connectingeurope.es/favicon.ico'
+
+
+	});
+
+}, false);
+
+
+  <?xml version='1.0' encoding='utf-8'?>
+  <widget id="com.prismacm.connecting" version="5" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+	  <preference name="phonegap-version" value="cli-7.1.0" />
+	  <name>conecting</name>
+	  <description>Sitema de localización y  fichado </description>
+	  <author email="ivonne@prismacm.com" href="http://phonegap.com">IVONNE</author>
+	  <content src="index.html" />
+	  <access origin="*" />
+	  <feature name="Geolocation">
+		  <param name="android-package" value="org.apache.cordova.geolocation.GeoBroker" />
+	  </feature>
+	  <preference name="permissions" value="none" />
+	  <preference name="orientation" value="default" />
+	  <preference name="target-device" value="universal" />
+	  <preference name="fullscreen" value="true" />
+	  <preference name="webviewbounce" value="true" />
+	  <preference name="prerendered-icon" value="true" />
+	  <preference name="stay-in-webview" value="false" />
+	  <preference name="ios-statusbarstyle" value="black-opaque" />
+	  <preference name="detect-data-types" value="true" />
+	  <preference name="exit-on-suspend" value="false" />
+	  <preference name="show-splash-screen-spinner" value="true" />
+	  <preference name="auto-hide-splash-screen" value="false" />
+	  <preference name="disable-cursor" value="false" />
+	  <preference name="android-minSdkVersion" value="19" />
+	  <preference name="android-installLocation" value="auto" />
+	  <access origin="*" />
+	  <plugin name="cordova-plugin-whitelist" spec="1.3.3" />
+	  <allow-intent href="http://*/*" />
+	  <allow-intent href="https://*/*" />
+	  <allow-intent href="tel:*" />
+	  <allow-intent href="sms:*" />
+	  <allow-intent href="mailto:*" />
+	  <allow-intent href="geo:*" />
+	  <plugin name="cordova-plugin-splashscreen" />
+	  <platform name="android">
+
+		  <resource-file src="google-services.json" target="google-services.json" />
+		  <allow-intent href="market:*" />
+		  <preference name="loadUrlTimeoutValue" value="700000" />
+		  <feature name="Sim">
+			  <param name="android-package" value="com.pbakondy.Sim" />
+		  </feature>
+		  <preference name="SplashScreen" value="splash" />
+		  <icon qualifier="ldpi" src="res/icons/android/drawable-ldpi-icon.png" />
+		  <icon qualifier="mdpi" src="res/icons/android/drawable-mdpi-icon.png" />
+		  <icon qualifier="hdpi" src="res/icons/android/drawable-hdpi-icon.png" />
+		  <icon qualifier="xhdpi" src="res/icons/android/drawable-xhdpi-icon.png" />
+		  <icon qualifier="xxhdpi" src="res/icons/android/drawable-xxhdpi-icon.png" />
+		  <icon qualifier="xxxhdpi" src="res/icons/android/drawable-xxxhdpi-icon.png" />
+		  <splash qualifier="land-ldpi" src="res/screens/android/drawable-land-ldpi-screen.png" />
+		  <splash qualifier="land-mdpi" src="res/screens/android/drawable-land-mdpi-screen.png" />
+		  <splash qualifier="land-hdpi" src="res/screens/android/drawable-land-hdpi-screen.png" />
+		  <splash qualifier="land-xhdpi" src="res/screens/android/drawable-land-xhdpi-screen.png" />
+		  <splash qualifier="land-xxhdpi" src="res/screens/android/drawable-land-xxhdpi-screen.png" />
+		  <splash qualifier="land-xxxhdpi" src="res/screens/android/drawable-land-xxxhdpi-screen.png" />
+		  <splash qualifier="port-ldpi" src="res/screens/android/drawable-port-ldpi-screen.png" />
+		  <splash qualifier="port-mdpi" src="res/screens/android/drawable-port-mdpi-screen.png" />
+		  <splash qualifier="port-hdpi" src="res/screens/android/drawable-port-hdpi-screen.png" />
+		  <splash qualifier="port-xhdpi" src="res/screens/android/drawable-port-xhdpi-screen.png" />
+		  <splash qualifier="port-xxhdpi" src="res/screens/android/drawable-port-xxhdpi-screen.png" />
+		  <splash qualifier="port-xxxhdpi" src="res/screens/android/drawable-port-xxxhdpi-screen.png" />
+	  </platform>
+	  <platform name="ios">
+		  <allow-intent href="itms:*" />
+		  <allow-intent href="itms-apps:*" />
+		  <resource-file src="GoogleService-Info.plist" />
+		  <source-file src="src/android/at/oneminutedistraction/phonenumber/PhoneNumberPlugin.java" target-dir="src/at/oneminutedistraction/phonenumber" />
+		  <icon height="57" platform="ios" src="res/icons/ios/icon.png" width="57" />
+		  <icon height="114" platform="ios" src="res/icons/ios/icon@2x.png" width="114" />
+		  <icon height="40" platform="ios" src="res/icons/ios/icon-40.png" width="40" />
+		  <icon height="80" platform="ios" src="res/icons/ios/icon-40@2x.png" width="80" />
+		  <icon height="50" platform="ios" src="res/icons/ios/icon-50.png" width="50" />
+		  <icon height="100" platform="ios" src="res/icons/ios/icon-50@2x.png" width="100" />
+		  <icon height="60" platform="ios" src="res/icons/ios/icon-60.png" width="60" />
+		  <icon height="120" platform="ios" src="res/icons/ios/icon-60@2x.png" width="120" />
+		  <icon height="180" platform="ios" src="res/icons/ios/icon-60@3x.png" width="180" />
+		  <icon height="72" platform="ios" src="res/icons/ios/icon-72.png" width="72" />
+		  <icon height="144" platform="ios" src="res/icons/ios/icon-72@2x.png" width="144" />
+		  <icon height="76" platform="ios" src="res/icons/ios/icon-76.png" width="76" />
+		  <icon height="152" platform="ios" src="res/icons/ios/icon-76@2x.png" width="152" />
+		  <icon height="29" platform="ios" src="res/icons/ios/icon-small.png" width="29" />
+		  <icon height="58" platform="ios" src="res/icons/ios/icon-small@2x.png" width="58" />
+		  <icon height="87" platform="ios" src="res/icons/ios/icon-small@3x.png" width="87" />
+		  <splash height="1136" platform="ios" src="res/screens/ios/Default-568h@2x~iphone.png" width="640" />
+		  <splash height="1334" platform="ios" src="res/screens/ios/Default-667h.png" width="750" />
+		  <splash height="2208" platform="ios" src="res/screens/ios/Default-736h.png" width="1242" />
+		  <splash height="1242" platform="ios" src="res/screens/ios/Default-Landscape-736h.png" width="2208" />
+		  <splash height="1536" platform="ios" src="res/screens/ios/Default-Landscape@2x~ipad.png" width="2048" />
+		  <splash height="768" platform="ios" src="res/screens/ios/Default-Landscape~ipad.png" width="1024" />
+		  <splash height="2048" platform="ios" src="res/screens/ios/Default-Portrait@2x~ipad.png" width="1536" />
+		  <splash height="1024" platform="ios" src="res/screens/ios/Default-Portrait~ipad.png" width="768" />
+		  <splash height="960" platform="ios" src="res/screens/ios/Default@2x~iphone.png" width="640" />
+		  <splash height="480" platform="ios" src="res/screens/ios/Default~iphone.png" width="320" />
+	  </platform>
+	  <plugin name="org.apache.cordova.geolocation"  />
+	  <plugin name="cordova-plugin-globalization"  />
+	  <plugin name="cordova-plugin-sim" source="npm"  />
+	  <feature name="PhoneNumberPlugin">
+		  <param name="android-package" value="at.oneminutedistraction.phonenumber.PhoneNumberPlugin" />
+	  </feature>
+	  <plugin name="cordova-plugin-background-mode"  />
+	  <plugin name="cordova-background-geolocation-lt">
+		  <variable name="LICENSE" value="YOUR_LICENSE_KEY" />
+		  <variable name="GOOGLE_API_VERSION" value="15.0.1" />
+		  <variable name="APPCOMPAT_VERSION" value="27.1.1" />
+		  <variable name="LOCATION_ALWAYS_AND_WHEN_IN_USE_USAGE_DESCRIPTION" value="Always use is required for background location tracking" />
+		  <variable name="LOCATION_ALWAYS_USAGE_DESCRIPTION" value="Background location-tracking is required" />
+		  <variable name="LOCATION_WHEN_IN_USE_USAGE_DESCRIPTION" value="Background location-tracking is required" />
+		  <variable name="MOTION_USAGE_DESCRIPTION" value="Using the accelerometer increases battery-efficiency by intelligently toggling location-tracking only when the device is detected to be moving" />
+	  </plugin>
+
+	  <preference name="SplashShowOnlyFirstTime" value="false" />
+	  <preference name="AutoHideSplashScreen" value="true" />
+	  <preference name="SplashScreenDelay" value="3000" />
+	  <gap:plugin name="cordova-plugin-local-notification" source="npm" />
+
+  </widget>

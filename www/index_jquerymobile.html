@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+
+<!--
+
+    Copyright (c) ivonne . All rights reserved.
+
+-->
+
+<html>
+
+<head>
+
+    <title>Geolocalización </title>
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+
+    <script>
+
+        // Initialize Firebase
+
+        var config = {
+
+            apiKey: "AIzaSyCzfZw9Vm9e8ztaumvTQsTX1qaBZSfr99U",
+
+            authDomain: "connecting-e5377.firebaseapp.com",
+
+            databaseURL: "https://connecting-e5377.firebaseio.com",
+
+            projectId: "connecting-e5377",
+
+            storageBucket: "connecting-e5377.appspot.com",
+
+            messagingSenderId: "953842536904"
+
+        };
+
+        //token del server : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJmaXJlYmFzZS1hZG1pbnNkay1xZjJzYkBjb25uZWN0aW5nLWU1Mzc3LmlhbS5nc2VydmljZWFjY291bnQuY29tIiwic3ViIjoiZmlyZWJhc2UtYWRtaW5zZGstcWYyc2JAY29ubmVjdGluZy1lNTM3Ny5pYW0uZ3NlcnZpY2VhY2NvdW50LmNvbSIsImF1ZCI6Imh0dHBzOlwvXC9pZGVudGl0eXRvb2xraXQuZ29vZ2xlYXBpcy5jb21cL2dvb2dsZS5pZGVudGl0eS5pZGVudGl0eXRvb2xraXQudjEuSWRlbnRpdHlUb29sa2l0IiwiaWF0IjoxNTQyMTE5MTc4LCJleHAiOjE1NDIxMjI3NzgsInVpZCI6Iml2b25uZUBwcmlzbWFjbS5jb20ifQ.4Y8QOD_YZ3LCk6zte21T5i6g4aTb3V_hCq4utsAl7RA
+
+        var app=  firebase.initializeApp(config);
+
+        var aut= app.auth();
+
+        const messaging = firebase.messaging();
+
+        messaging.requestPermission()
+
+            .then(function(){
+
+
+
+                return messaging.getToken();
+
+            })
+
+            .then(function (token){
+
+                localStorage.setItem("token", token);
+
+            })
+
+            .catch(function(err){
+
+                alert('no hay permiso');
+
+            })
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery-1.12.4.min.js"></script>
+
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD6cz9NsGdNE_K-eXAsZedHCNEaZRku63s"></script>
+
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6cz9NsGdNE_K-eXAsZedHCNEaZRku63s"
+
+      type="text/javascript"></script>-->
+
+    <!-- <link  href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css"></link> -->
+
+     <link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="css/onsen/onsen-css-components.min.css">
+    <link  href="css/onsen/onsenui.min.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" charset="utf-8" src="js/onsenui.min.js"></script>
+
+    <!--<script type="text/javascript" charset="utf-8" src="js/jquery.mobile-1.4.5.min.js"></script> -->
+
+   <script type="text/javascript" charset="utf-8" src="js/funciones.js"></script>
+
+   <script type="text/javascript" charset="utf-8">
+       document.addEventListener('init', function(event) {
+         //navigator.splashscreen.show();
+       });
+
+       document.addEventListener('deviceready', function () {
+        //   navigator.splashscreen.show();
+           var date = new Date();
+
+           var date_f = new Date();
+
+           var horario_descargado = JSON.parse(localStorage.getItem("horarios"));
+
+           if(horario_descargado){
+
+               $.each(horario_descargado, function(i, item) {
+
+                   date = new Date(item.horario_entrada);
+
+                   //alert(date);
+
+               });
+
+           }
+           FCMPlugin.onTokenRefresh(function(token){
+
+               localStorage.setItem("token", token);
+
+           });
+
+
+
+       }, false);
+
+       $(document).ready(function() {
+
+           $("#ruta").click(function() {
+
+               var destino =  $('#sitio').val();
+
+               var mode =  $('#mode').val();
+
+               calculateAndDisplayRoute(directionsService, directionsDisplay,destino,mode);
+
+           });
+
+           //cuando selecciona el medio de transporte
+
+           $( "#mode" ).on('change', function() {
+
+               var destino =  $('#sitio').val();
+
+               var mode =  $('#mode').val();
+
+               calculateAndDisplayRoute(directionsService, directionsDisplay,destino,mode);
+
+           });
+
+           //Cuando selecciona una distancia diferente
+
+           $( "#distancia" ).on('change', function() {
+
+               cargar_mas_cercanos($(this).val());
+
+               $('#sitios_cercanos').removeClass('hidden');
+
+               $('#route').removeClass('hidden');
+
+               if($(this).val() == "sel"){
+
+                   $('#sitios_cercanos').addClass('hidden');
+
+                   $('#route').addClass('hidden');
+
+               }
+
+           });
+
+           $('#fichar').click( function(){
+
+               //$('#distancia').val('sel');
+
+               initialize(lat_actual,log_actual);
+
+               	recargarHorarios();
+
+               //guardarPosicion(lat_actual,log_actual);
+
+           });
+
+           $('#iniciar').click( function(e){
+
+               //e.preventDefault();
+
+               opciones = {
+
+                   enableHighAccuracy: false,
+
+                   timeout: 10000,
+
+                   maximumAge: Infinity
+
+               };
+
+               var watchID_P = navigator.geolocation.watchPosition(onSuccessProgress, onError, opciones);
+
+           });
+
+           $('#pararProgress').click( function(e){
+
+               //e.preventDefault();
+
+               navigator.geolocation.clearWatch(watchID_P);
+
+           });
+
+           // Options: throw an error if no update is received every 30 seconds.
+
+           //var watchID = navigator.geolocation.watchPosition(onSuccess, onError, {maximumAge: 60000, timeout: 5000, enableHighAccuracy: true }); // esta me mira cada momento
+
+           //var watchID = navigator.geolocation.watchPosition(onSuccess, onError, 500000);
+
+           /*Con esta variable mirará la posicion cuando se lo indique*/
+
+           /*ESTO ES LO QUE SE CARGA AL PRINCIPIO (mapa y localizacion actual)*/
+
+           var watchID = navigator.geolocation.getCurrentPosition(onSuccess, onError, {maximumAge: Infinity, timeout: 30000, enableHighAccuracy: true }); // esta me mira una vez
+
+           var ahora = new Date();
+
+           var datetime = ahora.getDate() + "/"
+
+               + (ahora.getMonth()+1)  + "/"
+
+               + ahora.getFullYear() + "  "
+
+               + ahora.getHours() + ":"
+
+               + ahora.getMinutes() + ":"
+
+               + ahora.getSeconds();
+
+           /*************limpia *************/
+
+           navigator.geolocation.clearWatch(watchID);
+
+           /*if(ahora.getHours() == 11 && ahora.getMinutes == 30){
+
+                    navigator.geolocation.clearWatch(watchID_P);
+
+           }*/
+
+           document.addEventListener("deviceready", onDeviceReady, false);
+
+       });
+
+       function onDeviceReady() {
+
+           window.plugins.sim.getSimInfo(successCallback, errorCallback);
+
+       }
+
+       function successCallback(result) {
+
+
+           // document.getElementById("phone").innerHTML=JSON.stringify(result.phoneNumber);
+
+
+
+       }
+
+       function errorCallback(error) {
+
+
+
+       }
+
+   </script>
+
+   <style>
+
+       #map-canvas{
+
+           height:500px;
+
+       }
+
+       .hidden{
+
+           display:none;
+
+       }
+
+       .datos-telefono{
+
+           float: left;
+
+           width: 100%;
+
+           overflow: scroll;
+
+       }
+
+   </style>
+
+</head>
+
+<body>
+<ons-splitter>
+    <ons-splitter-side id="menu" side="left" width="220px" collapse swipeable>
+        <ons-page>
+            <ons-list>
+              
+
+            </ons-list>
+        </ons-page>
+    </ons-splitter-side>
+    <ons-splitter-content id="content" page="home.html"></ons-splitter-content>
+</ons-splitter>
+
+<div id="page-main" data-role="page" class="ui-corner-all">
+
+   <div data-role="content">
+
+       <fieldset data-role="controlgroup" data-type="horizontal">
+
+           <button type="submit" value="" id="fichar" >Fichar</button>
+
+       </fieldset>
+
+       <div role="main" class="ui-content" id="map-canvas">
+
+           <!-- map loads here... -->
+
+        </div>
+
+
+
+    </div>
+
+
+
+    <div data-role="footer">
+
+
+
+        <div data-role="navbar">
+
+            <ul>
+
+
+
+                <li><a href="#page-main" data-icon="grid">Fichar</a></li>
+
+
+
+                <li><a href="#page-horario" data-icon="gear">Horario</a></li>
+
+                <li><a href="#page-config" data-icon="gear">Configuración</a></li>
+
+
+
+            </ul>
+
+        </div><!-- /navbar -->
+
+    </div><!-- /footer -->
+
+
+
+</div>
+
+<div id="page-horario" data-role="page" class="ui-corner-all">
+
+    <div data-role="content" class="horarios">
+
+        <h2>Horarios de entrada</h2>
+
+    </div>
+
+
+
+    <div data-role="footer">
+
+
+
+        <div data-role="navbar">
+
+            <ul>
+
+                <li><a href="#page-main" data-icon="grid">Fichar</a></li>
+
+                <li><a href="#page-horario" data-icon="gear">Horario</a></li>
+
+                <li><a href="#page-config" data-icon="gear">Configuración</a></li>
+
+            </ul>
+
+        </div><!-- /navbar -->
+
+    </div><!-- /footer -->
+
+
+
+</div>
+
+<div id="page-config" data-role="page" class="ui-corner-all">
+
+    <div data-role="content">
+
+
+
+        <label for="username">Usuario:</label><input type="text" name="username" id="username" placeholder="Escribe tu usuario" />
+
+        <label for="password">Contraseña:</label><input type="password" name="password" id="password"/>
+
+        <button id="save">Guardar datos</button>
+
+        <button id="load">Ver datos</button>
+
+        <p class="token_prov"></p>
+
+        <button id="clear">Borrar usuario y contraseña</button>
+
+    </div>
+
+
+
+    <div data-role="footer"  >
+
+
+
+        <div data-role="navbar" data-iconpos="bottom">
+
+            <ul>
+
+                <li><a href="#page-main" data-icon="grid">Fichar</a></li>
+
+                <li><a href="#page-horario" data-icon="gear">Horario</a></li>
+
+                <li><a href="#page-config" data-icon="gear">Configuración</a></li>
+
+            </ul>
+
+        </div><!-- /navbar -->
+
+    </div><!-- /footer -->
+
+
+
+</div>
+
+<div class="mensaje" style="display:none">
+
+</div>
+
+</body>
+
+</html>
+
+
+
+
+
+<script type="text/javascript">
+
+    $(function() {
+
+        // Save input value to localStorage
+
+        $('#save').on('click', function() {
+
+            var username = $('#username').val();
+
+            var pass = $('#password').val();
+
+            localStorage.setItem("username", username);
+
+            localStorage.setItem("password", pass);
+
+            $('#username').val('');
+
+            $('#password').val('');
+
+            alert('los datos han sido guardados');
+
+        });
+
+        // Load input value from localStorage
+
+        $('#load').on('click', function() {
+
+            var username = localStorage.getItem('username') || '<empty>';
+
+            var password = localStorage.getItem('password') || '<empty>';
+
+            var token_guardado = localStorage.getItem('token') || '<empty>';
+
+            $('#username').val(username);
+
+            $('#password').val(password);
+
+            $('p.token_prov').text(token_guardado);
+
+
+
+        });
+
+        // Clear localStorage
+
+        $('#clear').on('click', function() {
+
+            localStorage.clear();
+
+        });
+
+    });
+
+</script>

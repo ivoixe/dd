@@ -1,0 +1,65 @@
+{
+  "name": "cordova-support-android-plugin",
+  "version": "1.0.1",
+  "description": "More convenient base CordovaPlugin class",
+  "cordova": {
+    "id": "cordova-support-android-plugin",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chemerisuk/cordova-support-android-plugin.git"
+  },
+  "author": {
+    "name": "Maksim Chemerisuk",
+    "email": "chemerisuk@gmail.com",
+    "url": "https://github.com/chemerisuk"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chemerisuk/cordova-support-android-plugin/issues"
+  },
+  "homepage": "https://github.com/chemerisuk/cordova-support-android-plugin#readme",
+  "keywords": [
+    "cordova",
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "scripts": {
+    "version": "replace -s 'version=\"(.+)(?=\">)' 'version=\"'$npm_package_version plugin.xml && git add plugin.xml",
+    "postversion": "git push && git push --tags"
+  },
+  "gitHead": "14dacc8feae4835ecb90c784ad83ce6898b9e338",
+  "_id": "cordova-support-android-plugin@1.0.1",
+  "_npmVersion": "5.6.0",
+  "_nodeVersion": "8.11.2",
+  "_npmUser": {
+    "name": "chemerisuk",
+    "email": "chemerisuk@gmail.com"
+  },
+  "maintainers": [
+    {
+      "name": "chemerisuk",
+      "email": "chemerisuk@gmail.com"
+    }
+  ],
+  "dist": {
+    "integrity": "sha512-m/ciZFl2kPsdA1jFp0By2txF0aOqnVvhNqQhM04fFNjD2tlcFNsaIqOpkCfDzCYVy9mVH0BupwePmRMTgEIoMw==",
+    "shasum": "ff3010596dd66dc7e0f3ca9c0942dc55a3309089",
+    "tarball": "https://registry.npmjs.org/cordova-support-android-plugin/-/cordova-support-android-plugin-1.0.1.tgz",
+    "fileCount": 6,
+    "unpackedSize": 8832,
+    "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbI4oKCRA9TVsSAnZWagAAAy4QAILEbnjcIzh5LCum7ELh\naCyLg9a/1z9tnLtcFVA7hO6tTj3P9lqFaNBRnJU2v9mTkfTH+fF9ACwrHNq+\npwwgFv+S3iyeWU/bxhk/1gFPDe8OU0jQrVl04EEFB7oB3wZGdnc/4wXygIqF\nsW21KjkzA6NGHtCaZ4ihb7H9mrWlvRacVTj5hd8gm+Rl3nlYKgnH0DZoUL+h\ne70+FxMbrO24zz85MiuUXZI+O1zA3gZZ64aio8IMzQGVEiQF/yVmPggPE5O0\ne8DS9+psL1E7eiWs/FUuu4FjbrUqWr6x5PQtOmiYAX3WZhkJVFt+X3JKwetY\nvQ7eGseF2GA0+Q5Q4xKK/wLZOvBwszqkebbE+iMjL+W3fgI1BYVWWDAGB1j7\nazAlFMAqSOfJQcPhePuY5hmW4tOKaF8ediYdV/kVQW1Xz/45/24QCz5Lo1rd\nc4jdjeDvxQlubktGpOsvEE4q2V2q9KGMQpuUcXPv/LkatZBhUDxudCgA+U0A\nuLQK25XAk0ewyBV4++PyY0fkZ+MMCOiUl78TKazb1jmx9uHDb4lr/nN4449l\npUBxWD10DMIyd3iL8O6kzyODtYh2PXAE0tEOPLG/KOwE2eZH+KOKbxK473De\nNRzxpQkA5NVNLfg45OdjMf9ysT1ajTIKT4wEdfoZ0voGVPNP64AQAxMB7EYs\n+ZgE\r\n=q65s\r\n-----END PGP SIGNATURE-----\r\n"
+  },
+  "directories": {},
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/cordova-support-android-plugin_1.0.1_1529055753579_0.10712444178045821"
+  },
+  "_shasum": "ff3010596dd66dc7e0f3ca9c0942dc55a3309089",
+  "_resolved": "https://registry.npmjs.org/cordova-support-android-plugin/-/cordova-support-android-plugin-1.0.1.tgz",
+  "_from": "cordova-support-android-plugin@>=1.0.0 <1.1.0"
+}

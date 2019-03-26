@@ -1,0 +1,72 @@
+{
+  "name": "cordova-plugin-sim2",
+  "version": "1.0.19",
+  "description": "A plugin to get the device's SIM data (carrier name, mcc mnc, country code, telephonenumber, etc)",
+  "cordova": {
+    "id": "cordova-plugin-sim2",
+    "platforms": [
+      "android",
+      "ios",
+      "wp7",
+      "wp8"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scwl/cordova-plugin-sim.git"
+  },
+  "keywords": [
+    "cordova",
+    "sim",
+    "uicc",
+    "carrier",
+    "mcc",
+    "mnc",
+    "telephonenumber",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "cordova-wp7",
+    "cordova-wp8"
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "author": {
+    "name": "scwl"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/scwl/cordova-plugin-sim/issues"
+  },
+  "homepage": "https://github.com/scwl/cordova-plugin-sim#readme",
+  "_id": "cordova-plugin-sim2@1.0.19",
+  "scripts": {},
+  "_shasum": "eec9f829bdd1af2151e6be98b8ba3d16be13b915",
+  "_from": "cordova-plugin-sim2@latest",
+  "_npmVersion": "3.10.10",
+  "_nodeVersion": "6.10.0",
+  "_npmUser": {
+    "name": "scwl",
+    "email": "soren@ikx.no"
+  },
+  "dist": {
+    "shasum": "eec9f829bdd1af2151e6be98b8ba3d16be13b915",
+    "tarball": "https://registry.npmjs.org/cordova-plugin-sim2/-/cordova-plugin-sim2-1.0.19.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "scwl",
+      "email": "soren@ikx.no"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "packages-18-east.internal.npmjs.com",
+    "tmp": "tmp/cordova-plugin-sim2-1.0.19.tgz_1489509949958_0.8328871503472328"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-sim2/-/cordova-plugin-sim2-1.0.19.tgz"
+}

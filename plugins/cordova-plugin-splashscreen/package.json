@@ -1,0 +1,118 @@
+{
+  "name": "cordova-plugin-splashscreen",
+  "version": "5.0.2",
+  "description": "Cordova Splashscreen Plugin",
+  "types": "./types/index.d.ts",
+  "cordova": {
+    "id": "cordova-plugin-splashscreen",
+    "platforms": [
+      "android",
+      "ubuntu",
+      "ios",
+      "windows",
+      "browser"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apache/cordova-plugin-splashscreen.git"
+  },
+  "bugs": {
+    "url": "https://issues.apache.org/jira/browse/CB"
+  },
+  "keywords": [
+    "cordova",
+    "splashscreen",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "cordova-windows"
+  ],
+  "scripts": {
+    "test": "npm run jshint",
+    "jshint": "node node_modules/jshint/bin/jshint www && node node_modules/jshint/bin/jshint src && node node_modules/jshint/bin/jshint tests"
+  },
+  "engines": {
+    "cordovaDependencies": {
+      "2.0.0": {
+        "cordova-android": ">=3.6.0"
+      },
+      "4.0.0": {
+        "cordova-android": ">=3.6.0",
+        "cordova-windows": ">=4.4.0"
+      },
+      "6.0.0": {
+        "cordova": ">100"
+      }
+    }
+  },
+  "author": {
+    "name": "Apache Software Foundation"
+  },
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "jshint": "^2.6.0"
+  },
+  "homepage": "https://github.com/apache/cordova-plugin-splashscreen#readme",
+  "_id": "cordova-plugin-splashscreen@5.0.2",
+  "_shasum": "747e74f56e201cd585bc62d14bca19f6867ff1ed",
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-splashscreen/-/cordova-plugin-splashscreen-5.0.2.tgz",
+  "_from": "cordova-plugin-splashscreen@5.0.2",
+  "_npmVersion": "4.6.1",
+  "_nodeVersion": "6.10.2",
+  "_npmUser": {
+    "name": "surajpindoria",
+    "email": "suraj.pindoria@yahoo.com"
+  },
+  "dist": {
+    "shasum": "747e74f56e201cd585bc62d14bca19f6867ff1ed",
+    "tarball": "https://registry.npmjs.org/cordova-plugin-splashscreen/-/cordova-plugin-splashscreen-5.0.2.tgz"
+  },
+  "maintainers": [
+    {
+      "email": "suraj.pindoria@yahoo.com",
+      "name": "surajpindoria"
+    },
+    {
+      "email": "jcesarmobile@gmail.com",
+      "name": "jcesarmobile"
+    },
+    {
+      "email": "simon.macdonald@gmail.com",
+      "name": "macdonst"
+    },
+    {
+      "email": "bowserj@apache.org",
+      "name": "bowserj"
+    },
+    {
+      "email": "purplecabbage@gmail.com",
+      "name": "purplecabbage"
+    },
+    {
+      "email": "maj.fil@gmail.com",
+      "name": "filmaj"
+    },
+    {
+      "email": "shazron@gmail.com",
+      "name": "shazron"
+    },
+    {
+      "email": "csantana23@gmail.com",
+      "name": "csantanapr"
+    },
+    {
+      "email": "kotikov.vladimir@gmail.com",
+      "name": "kotikov.vladimir"
+    },
+    {
+      "email": "stevengill97@gmail.com",
+      "name": "stevegill"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/cordova-plugin-splashscreen-5.0.2.tgz_1517268294206_0.18214110611006618"
+  },
+  "directories": {}
+}
